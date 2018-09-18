@@ -1,0 +1,481 @@
+{
+	"info": {
+		"_postman_id": "665009f1-a11b-4e2a-81c6-74beea18234f",
+		"name": "CiberQuizz-CUCEI",
+		"description": "RESTfullAPI para el proyecto CiberQuizz-CCUCEI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get lista admins",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/admin",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin"
+					]
+				},
+				"description": "Obtiene la lista de las cuentas que pertenecen a administradores"
+			},
+			"response": []
+		},
+		{
+			"name": "Get lista usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Obtiene la lista de las cuentas de usuario de la plataforma"
+			},
+			"response": []
+		},
+		{
+			"name": "LogIn",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "juan",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "contra123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Inicio de sesión para usuarios y administradores."
+			},
+			"response": []
+		},
+		{
+			"name": "Crear admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "juan",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "juan@correo.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "contra123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/admin",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin"
+					]
+				},
+				"description": "Permite la creación de una cuenta con permisos de administración"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Juan03",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Juan",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "Juan@correo.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "contra123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signin"
+					]
+				},
+				"description": "Permite la creación de una cuenta de usuario."
+			},
+			"response": []
+		},
+		{
+			"name": "Ver usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/users/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1"
+					]
+				},
+				"description": "Permite la visualización de un perfil de usuario en particular."
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar usuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Juan",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "Juan@correo.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "contra123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/users/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1"
+					]
+				},
+				"description": "Permite modificar la información de algún perfil de usuario en particular."
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "juan03",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Permite la eliminación de un usuario de la plataforma."
+			},
+			"response": []
+		},
+		{
+			"name": "Get preguntas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/questions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"questions"
+					]
+				},
+				"description": "Regresa una lista de preguntas"
+			},
+			"response": []
+		},
+		{
+			"name": "Get pregunta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/questions/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"questions",
+						"1"
+					]
+				},
+				"description": "Retorna una pregunta en particular"
+			},
+			"response": []
+		},
+		{
+			"name": "Elegir respuesta",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "response",
+							"value": "Resp. Ejemplo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/play",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"play"
+					]
+				},
+				"description": "Elige una respuesta"
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar amigo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Juan",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/user/friendreq",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"friendreq"
+					]
+				},
+				"description": "Permite agregar un amigo en la plataforma"
+			},
+			"response": []
+		},
+		{
+			"name": "Aceptar solicitud de amistad",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "status",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/user/friendreq/pend",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"friendreq",
+						"pend"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear pregunta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "category",
+							"value": "Databases",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "Question placeholder",
+							"type": "text"
+						},
+						{
+							"key": "correct",
+							"value": "The correct one",
+							"type": "text"
+						},
+						{
+							"key": "option_1",
+							"value": "option 1",
+							"type": "text"
+						},
+						{
+							"key": "option_2",
+							"value": "option 2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/submit",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"submit"
+					]
+				},
+				"description": "Permite crear preguntas a los usuarios de la plataforma"
+			},
+			"response": []
+		}
+	]
+}
