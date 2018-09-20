@@ -3,6 +3,8 @@ const { Router } = require('express');
 // const usersCtrl = require('../controllers/users');
 // const dateMidd = require('../middleware/index');
 
+const catMidd = require('../middlewares');
+
 const router = Router();
 
 // Lista categorias
@@ -32,7 +34,7 @@ router.get('/:category', (req, res) => {
 
 // modificar categoria
 
-router.put('/:category', (req, res) => {
+router.put('/:category', catMidd.categoyRF, (req, res) => {
     const json = {
         response: 'ok',
         data: {

@@ -3,11 +3,14 @@ const { Router } = require('express');
 // const usersCtrl = require('../controllers/users');
 // const dateMidd = require('../middleware/index');
 
+const questionMidd = require('../middlewares');
+
+
 const router = Router();
 
 // Lista de preguntas
 
-router.get('/', (req, res) => {
+router.get('/', questionMidd.isAdmin, (req, res) => {
     const json = {
         response: 'ok',
         data: [{
@@ -44,7 +47,7 @@ router.get('/', (req, res) => {
 
 // Ver pregunta
 
-router.get('/:id', (req, res) => {
+router.get('/:id', questionMidd.isAdmin, (req, res) => {
     const json = {
         response: 'ok',
         data: {
@@ -62,7 +65,7 @@ router.get('/:id', (req, res) => {
 
 // Crear pregunta
 
-router.post('/submit', (req, res) => {
+router.post('/submit', questionMidd.questionsRF, (req, res) => {
     const json = {
         response: 'ok',
         data: {
@@ -80,7 +83,7 @@ router.post('/submit', (req, res) => {
 
 // Aprobar preguntas
 
-router.put('/:id', (req, res) => {
+router.put('/:id', questionMidd.isAdmin, (req, res) => {
     const json = {
         response: 'ok',
         data: {
@@ -98,7 +101,7 @@ router.put('/:id', (req, res) => {
 
 // Eliminar preguntas
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', questionMidd.isAdmin, (req, res) => {
     const json = {
         response: 'ok',
         data: {

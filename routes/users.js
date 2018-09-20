@@ -1,13 +1,14 @@
 const { Router } = require('express');
 
 // const usersCtrl = require('../controllers/users');
-// const dateMidd = require('../middleware/index');
+//
+const userMidd = require('../middlewares');
 
 const router = Router();
 
 // Lista usuarios
 
-router.get('/', (req, res) => {
+router.get('/', userMidd.isAdmin, (req, res) => {
     const persona = [{
         id: 1,
         permissions: true,
@@ -50,7 +51,7 @@ router.get('/:id', (req, res) => {
 
 // Agregar usuario
 
-router.post('/signin', (req, res) => {
+router.post('/signin', userMidd.usersRF, (req, res) => {
     const json = {
         response: 'ok',
         data: {
@@ -82,13 +83,13 @@ router.put('/:id', (req, res) => {
 
 // Eliminar usuario
 
-router.delete('/', (req, res) => {
+router.delete('/', userMidd.isAdmin, (req, res) => {
     res.send(`se ha eliminado el usuario ${req.body.username} exitosamente!`);
 });
 
 // Agregar admin
 
-router.post('/admin', (req, res) => {
+router.post('/admin', userMidd.isAdmin, (req, res) => {
     const json = {
         response: 'ok',
         data: {
@@ -104,7 +105,7 @@ router.post('/admin', (req, res) => {
 
 // Eliminar admin
 
-router.delete('/admin', (req, res) => {
+router.delete('/admin', userMidd.isAdmin, (req, res) => {
     res.send(`se ha eliminado el usuario ${req.body.username} exitosamente!`);
 });
 

@@ -3,6 +3,8 @@ const { Router } = require('express');
 // const usersCtrl = require('../controllers/users');
 // const dateMidd = require('../middleware/index');
 
+const loginMidd = require('../middlewares');
+
 const router = Router();
 
 // LogIn UsuariosAdmin
@@ -11,7 +13,7 @@ router.get('/', (req, res) => {
     res.send('es el login');
 });
 
-router.get('/', (req, res) => {
+router.post('/', loginMidd.loginRF, (req, res) => {
     const json = {
         response: 'ok',
         data: {

@@ -3,6 +3,8 @@ const { Router } = require('express');
 // const usersCtrl = require('../controllers/users');
 // const dateMidd = require('../middleware/index');
 
+const playMidd = require('../middlewares');
+
 const router = Router();
 
 router.get('/', (req, res) => {
@@ -17,7 +19,7 @@ router.put('/', (req, res) => {
 
 // Ganar o perder puntos
 
-router.put('/', (req, res) => {
+router.put('/', playMidd.validPoints, (req, res) => {
     const json = {
         response: 'ok',
         data: {
