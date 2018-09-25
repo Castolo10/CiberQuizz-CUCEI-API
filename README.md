@@ -1,4 +1,4 @@
-#CiberQuizz CUCEI
+# CiberQuizz CUCEI
 
 El juego sera la version basica de Trivia Crack (preguntados), pero enfocado a tematicas de programacion.
 
