@@ -1,27 +1,22 @@
-const mysql = require('mysql');
-
+const pgp = require("pg-promise");
 class DB {
-  constructor() {
-    this.con = mysql.createConnection({
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASS,
-      database: process.env.DB_NAME,
-    });
-
+  constructor(){
+    this.con = pgp("postgres://"+process.env.DB_USER+":"+process.env.DB_PASS+"@"+process.env.DB_HOST":"+process.env.PORT"/"+process.env.DB_NAME);
     this.con.connect();
   }
-
-  queryGet(table) {
-    return this.con.query(`SELECT * FROM ${table}`, (err, rows) => {
-      if (err) throw err;
-      return this.processResults(rows);
-    });
-  }
-
-  processResults(result){
-    return result;
-  }
+  //query() Aquí van los querys
 }
 
-exports.db = new DB();
+module.exports = new DB();
+
+
+/*var db //Código de ejemplo
+
+db.one("SELECT $1 AS value", 123)
+    .then(function (data) {
+        console.log("DATA:", data.value);
+    })
+    .catch(function (error) {
+        console.log("ERROR:", error);
+    });*/
+
