@@ -5,18 +5,29 @@ class DB {
     this.con.connect();
   }
   //query() Aquí van los querys
+  queryGetallusers() {
+   return this.con.query(`SELECT * FROM user`, (err, rows) => {
+     if (err) throw err;
+     return this.processResults(rows);
+   });
+ }
+
+   querynuevouser(username,name,mail,password,permisos) {
+     return this.con.query(`INSERT INTO user (username,name,mail,password,permisos) VALUES (${username},${name},${mail},${password},${permisos})`,(err,rows)
+     => {
+       if (err) throw err;
+       return this.processResults(rows);
+     });
+  }
+
+  querydeleteuser(username) {
+    return this.con.query(`DELETE * FROM user WHERE username= ${username}`, (err,rows)  => {
+       if (err) throw err;
+       return this.processResults(rows);
+    });
+  }
+
 }
 
 module.exports = new DB();
-
-
-/*var db //Código de ejemplo
-
-db.one("SELECT $1 AS value", 123)
-    .then(function (data) {
-        console.log("DATA:", data.value);
-    })
-    .catch(function (error) {
-        console.log("ERROR:", error);
-    });*/
 
