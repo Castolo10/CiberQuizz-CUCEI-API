@@ -3,7 +3,7 @@ const { Router } = require('express');
 // const usersCtrl = require('../controllers/users');
 // const dateMidd = require('../middleware/index');
 
-const playMidd = require('../middlewares');
+const playMidd = require('../middlewares/play.js');
 
 const router = Router();
 

@@ -3,7 +3,7 @@ const { Router } = require('express');
 // const usersCtrl = require('../controllers/users');
 // const dateMidd = require('../middleware/index');
 
-const questionMidd = require('../middlewares');
+const questionMidd = require('../middlewares/questions.js');
 
 
 const router = Router();
@@ -65,7 +65,7 @@ router.get('/:id', questionMidd.isAdmin, (req, res) => {
 
 // Crear pregunta
 
-router.post('/submit', questionMidd.questionsRF, (req, res) => {
+router.post('/submit', questionMidd.requiredFields, (req, res) => {
     const json = {
         response: 'ok',
         data: {

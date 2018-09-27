@@ -3,7 +3,7 @@ const { Router } = require('express');
 // const usersCtrl = require('../controllers/users');
 // const dateMidd = require('../middleware/index');
 
-const loginMidd = require('../middlewares');
+const loginMidd = require('../middlewares/login.js');
 
 const router = Router();
 
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     res.send('es el login');
 });
 
-router.post('/', loginMidd.loginRF, (req, res) => {
+router.post('/', loginMidd.requiredFields, (req, res) => {
     const json = {
         response: 'ok',
         data: {
