@@ -1,24 +1,26 @@
 require('dotenv').config();
 
 const express = require('express');
-// const something = require('./middleware/');
 
-// console.log(something);
-
-// const pgp = require('pg-promise');
-//
-// const db = pgp(`postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.PORT}/${process.env.DB_NAME}`);
-//
-// db.connect();
-//
-// db.query('SELECT 1 + 1 AS solution', err, rows, fields);
-
-const app = express();
+const bodyParser = require('body-parser');
 
 const router = require('./routes');
 
+const { errorHandler } = require('./middlewares');
+
+const app = express();
+
+// cargamos middlewares
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Carga rutas en la app
+
 app.use(router);
 
-app.listen(3000, () => {
-    console.log('Example app listening on port 3000!');
+app.use(errorHandler);
+
+app.listen(process.env.PORT, () => {
+    console.log(`Example app listening on port ${process.env.PORT}`);
 });

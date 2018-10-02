@@ -1,73 +1,34 @@
-const { Router } = require('express');
+const router = require('express').Router();
 
-// const usersCtrl = require('../controllers/users');
-//
-const userMidd = require('../middlewares/users.js');
+const { usersCtrl } = require('../controllers');
 
-const router = Router();
+const middlewares = require('../middlewares');
 
 // Lista usuarios
 
-router.get('/', userMidd.isAdmin, (req, res) => {
-    const persona = [{
-        id: 1,
-        permissions: true,
-        username: 'Juancho01',
-        name: 'Juan',
-        mail: 'Juan@gmail.com',
-    },
-    {
-        id: 2,
-        permissions: false,
-        username: 'Juancho02',
-        name: 'Juan',
-        mail: 'Juan@gmail.com',
-    },
-    {
-        id: 3,
-        permissions: false,
-        username: 'Juancho03',
-        name: 'Juan',
-        mail: 'Juan@gmail.com',
-    }];
-    res.send(persona);
-});
+router.get('/', usersCtrl.getAll);
 
 // Ver perfil usuario
 
-router.get('/:id', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            id: req.params.id,
-            username: `Juancho${req.params.id}`,
-            name: 'Juan',
-            mail: `Juan${req.params.id}@gmail.com`,
-        },
-    };
-
-    res.send(json);
-});
+router.get('/:id', usersCtrl.get);
 
 // Agregar usuario
 
-router.post('/signin', userMidd.usersRF, (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            id: 100,
-            username: req.body.username,
-            name: req.body.name,
-            mail: req.body.mail,
-            password: req.body.password,
+router.post('/', (req, res, next) => {
+    middlewares.validator.validate(req, res, next, {
+        body: {
+            name: 'word, required',
+            email: 'email, required',
+            unwanted: 'required',
         },
-    };
-    res.send(json);
-});
+    });
+}, usersCtrl.create);
+
+router.delete('/:id', usersCtrl.delete);
 
 // Editar usuario
 
-router.put('/:id', (req, res) => {
+/* router.put('/:id', (req, res) => {
     const json = {
         response: 'ok',
         data: {
@@ -148,6 +109,6 @@ router.put('/friends/req', (req, res) => {
 
 router.delete('/friends', (req, res) => {
     res.send(`Se ha eliminado el usuario ${req.body.username} de tu lista de amigos`);
-});
+}); */
 
 module.exports = router;
