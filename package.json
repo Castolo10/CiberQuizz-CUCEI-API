@@ -4,8 +4,7 @@
   "description": "Sitio enfocado a ser un juego de preguntas sobre topicos de informatica",
   "main": "index.js",
   "scripts": {
-    "test": "https://github.com/Castolo10/CiberQuizz-CUCEI.git",
-    "start": "node app.js",
+    "test": "https://github.com/Castolo10/CiberQuizz-CUCEI.git"
   },
   "repository": {
     "type": "git",
