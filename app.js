@@ -20,7 +20,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(router);
 
 app.use(errorHandler);
-
+/*
 app.listen(process.env.PORT, () => {
     console.log(`Example app listening on port ${process.env.PORT}`);
-});
+});*/
+
+app.listen(3000);
+console.log('servidor express escuchando');

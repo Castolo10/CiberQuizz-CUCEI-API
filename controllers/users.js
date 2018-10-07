@@ -1,4 +1,4 @@
-const { User } = require('../models');
+//const { User } = require('../models');
 
 class UserCtrl {
     // placeholder para contructor
@@ -12,10 +12,6 @@ class UserCtrl {
         ];
     }
 
-    this.getAll = this.getAll.bind(this);
-    this.get = this.get.bind(this);
-    this.create = this.create.bind(this);
-    this.delete = this.delete.bind(this);
 
     async getAll(req, res) {
       let data = await User.getAll();
