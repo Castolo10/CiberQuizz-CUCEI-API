@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const router = require('./routes');
 
-const { errorHandler } = require('./middlewares');
+// const { errorHandler } = require('./middlewares');
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(router);
 
-app.use(errorHandler);
+// app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
     console.log(`Example app listening on port ${process.env.PORT}`);
