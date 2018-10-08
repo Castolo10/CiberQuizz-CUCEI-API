@@ -1,6 +1,6 @@
 const db = require('../db');
 
-exports.create = function(username, name, mail, password, roles = false, exist = false) {
+exports.add = function(username, name, mail, password, roles = false, exist = false) {
   var response = db.INSERT('user',
   'username, name, mail, password, roles, exist',
   `\'${username}\',\'${name}\',\'${mail}\',\'${password}\',\'${roles}\',\'${exist}\'`,
@@ -21,13 +21,6 @@ exports.list = () => {
   return response;
 };
 
-exports.auth = (username,password) => {
-  var response = db.SELECT('user',
-  '*',
-  `username=\'${username}\' AND password=\'${password}\'`);
-  return response;
-};
-
 exports.edit = (username, name, mail, password, roles) => {
   var response = db.UPDATE('user',
   `name=\'${name}\', mail=\'${email}\', password=\'${password}\',
@@ -38,7 +31,7 @@ exports.edit = (username, name, mail, password, roles) => {
 };
 
 exports.delete = (username) => {
-  var response = db.UPDATE(user, 'exist=false',
+  var response = db.UPDATE('user', 'exist=false',
   `username=${username}`);
   return response;
 };
