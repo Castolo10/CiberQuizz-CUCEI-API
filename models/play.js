@@ -28,11 +28,16 @@ exports.matchHistory = (username) => {
   return response;
 }
 
+<<<<<<< HEAD
 exports.deleteGame = (id_game) => {
+=======
+exports.delete = (id_game) => {
+>>>>>>> 902501aedad5ee693e8a42d22275e9e3de0445ce
   var response = db.DELETE('game',
   `id_game=${id_game}`);
   return response;
 };
+<<<<<<< HEAD
 
 exports.addToDetails = (id_game, id_ques, res_p1 = '', res_p2 ='') => {
   var response = db.INSERT('questionlist',
@@ -66,3 +71,5 @@ exports.deleteDetails = (id_game, id_ques) => {
   `id_game=\'${id_game}\' AND id_ques\'${id_ques}\'`);
   return response;
 }
+=======
+>>>>>>> 902501aedad5ee693e8a42d22275e9e3de0445ce
