@@ -9,8 +9,8 @@ exports.create = function(username, name, mail, password, roles = false, exist =
   return response;
 };
 
-exports.find = (username,password) => {
-  var response = db.SELECT('user', '*', `username=\'${username}\' AND password=\'${password}\'`);
+exports.find = (username) => {
+  var response = db.SELECT('user', '*', `username=\'${username}\'`);
   return response;
 };
 
@@ -19,20 +19,20 @@ exports.list = () => {
   return response;
 };
 
-exports.view = (username) => {
-  var response = db.SELECT('user', '*', `username=\'${username}\'`);
+exports.auth = (username,password) => {
+  var response = db.SELECT('user', '*', `username=\'${username}\' AND password=\'${password}\'`);
   return response;
 };
 
-exports.edit = (username, name, mail, password) => {
+exports.edit = (username, name, mail, password, roles) => {
   var response = db.UPDATE('user',
-  `name=\'${name}\', mail=\'${email}\', password=\'${password}\'`,
+  `name=\'${name}\', mail=\'${email}\', password=\'${password}\', roles=\'${roles}\'`,
   `username=${username}`,
   `*`);
   return response;
 };
 
 exports.delete = (username) => {
-  var response = db.UPDATE(user, 'exist=true',`username=${username}`);
+  var response = db.UPDATE(user, 'exist=false',`username=${username}`);
   return response;
 };

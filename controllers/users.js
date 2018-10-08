@@ -1,4 +1,4 @@
-const { User } = require('../modules');
+const { User } = require('../models');
 
 class UserCtrl {
     // placeholder para contructor
