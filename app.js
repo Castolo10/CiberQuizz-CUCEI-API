@@ -1,11 +1,9 @@
 require('dotenv').config();
-
 const express = require('express');
-
 const bodyParser = require('body-parser');
-
 const router = require('./routes');
-
+const cors = require('cors');
+const createError = require('http-errors');
 // const { errorHandler } = require('./middlewares');
 
 const app = express();
@@ -15,12 +13,24 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Carga rutas en la app
+// Configuramos cors
+var corsOptions = {
+  origin: 'ciberquizz-cucei.herokuapp.com',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
+// Carga rutas en la app
+app.use(cors());
+app.options('*', cors()); // Incluirlo antes del resto de rutas
 app.use(router);
 
-// app.use(errorHandler);
+// pasamos el 404 al errorHandler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
 app.listen(process.env.PORT, () => {
     console.log(`Example app listening on port ${process.env.PORT}`);
 });
+
+module.exports = app;
