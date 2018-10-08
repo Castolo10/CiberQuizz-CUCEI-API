@@ -31,7 +31,7 @@ exports.edit = (username, name, mail, password, roles) => {
 };
 
 exports.delete = (username) => {
-  var response = db.UPDATE(user, 'exist=false',
+  var response = db.UPDATE('user', 'exist=false',
   `username=${username}`);
   return response;
 };
