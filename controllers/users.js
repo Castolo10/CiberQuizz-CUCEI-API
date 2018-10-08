@@ -12,56 +12,50 @@ class UserCtrl {
         ];
     }
 
-    this.getAll = this.getAll.bind(this);
-    this.get = this.get.bind(this);
-    this.create = this.create.bind(this);
-    this.delete = this.delete.bind(this);
+    static async getAll(req, res) {
+        const datar = await User.getAll();
 
-    async getAll(req, res) {
-      let data = await User.getAll();
+        const json = {
+            data: datar,
+            total_count: datar.length,
+            per_page: datar.length,
+            page: 0,
+        };
 
-      const json = {
-        data: data,
-        total_count: data.length,
-        per_page: data.length,
-        page: 0,
-      };
+        // si el usuario no se encuentra
+        if (datar.length === 0) {
+            res.status(204);
+        }
 
-      // si el usuario no se encuentra
-      if(data.length === 0) {
-        res.status(204);
-      }
-
-      res.send(json);
+        res.send(json);
     }
 
-    async get(req, res) {
-      let data = await User.get(req.params.id);
+    static async get(req, res) {
+        const data = await User.get(req.params.id);
 
-      // si el usuario no se encuentra
+        // si el usuario no se encuentra
 
-      if(data.length === 0){
-        res.status(204);
-      }
+        if (data.length === 0) {
+            res.status(204);
+        }
 
-      res.send(data);
+        res.send(data);
     }
 
-    async create(req, res, next) {
-      try {
-        let data = await User.create(req.body);
-        res.status(201).send(data);
-      } catch(e) {
-        next(e);
-      }
+    static async create(req, res, next) {
+        try {
+            const data = await User.create(req.body);
+            res.status(201).send(data);
+        } catch (e) {
+            next(e);
+        }
     }
 
     delete(req, res) {
-      const index = this.data.findIndex(el => el.id === Number(req.params.id));
-      this.data.splice(index, 1);
-      res.send();
+        const index = this.data.findIndex(el => el.id === Number(req.params.id));
+        this.data.splice(index, 1);
+        res.send();
     }
-
 }
 
 module.exports = new UserCtrl();
