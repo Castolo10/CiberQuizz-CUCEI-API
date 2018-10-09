@@ -1,47 +1,34 @@
-const { Router } = require('express');
+const express = require('express');
+const controller = require('../controllers/categories');
 
-// const usersCtrl = require('../controllers/users');
-// const dateMidd = require('../middleware/index');
+const router = express.Router();
 
-const catMidd = require('../middlewares');
-
-const router = Router();
-
-// Lista categorias
-
-router.get('/', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            category: 'placeholder name',
-            content: 'description',
-        },
-    };
-    res.send(json);
+router.post('/', (req, res) => {
+    const response = controller.add(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
-
-// Elegir categoría(ver)
 
 router.get('/:category', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            category: req.body.category,
-        },
-    };
-    res.send(json);
+    const response = controller.find(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
-// modificar categoria
+router.get('/', (req, res) => {
+    const response = controller.list(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
 
-router.put('/:category', catMidd.categoyRF, (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            content: req.body.category,
-        },
-    };
-    res.send(json);
+router.put('/', (req, res) => {
+    const response = controller.edit(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
 module.exports = router;

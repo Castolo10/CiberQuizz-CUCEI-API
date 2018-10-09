@@ -1,28 +1,13 @@
-const { Router } = require('express');
+const express = require('express');
+const controller = require('../controllers/login');
 
-// const usersCtrl = require('../controllers/users');
-// const dateMidd = require('../middleware/index');
+const router = express.Router();
 
-const loginMidd = require('../middlewares');
-
-const router = Router();
-
-// LogIn UsuariosAdmin
-
-router.get('/', (req, res) => {
-    res.send('es el login');
-});
-
-router.post('/', loginMidd.loginRF, (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            id: 1,
-            username: req.body.username,
-            password: req.body.password,
-        },
-    };
-    res.send(json);
+router.get('/:username/:password', (req, res) => {
+    const response = controller.auth(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
 module.exports = router;
