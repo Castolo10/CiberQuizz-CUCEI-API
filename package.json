@@ -31,14 +31,12 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-<<<<<<< HEAD
-=======
     "cors": "^2.8.4",
->>>>>>> d4615c80996817dbe3e8f74269501995fb1aec04
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-promise-router": "^3.0.3",
     "http-errors": "^1.7.1",
+    "node": "^10.11.0",
     "pg": "^7.5.0",
     "pg-promise": "^8.4.6"
   }

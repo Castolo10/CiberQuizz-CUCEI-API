@@ -12,7 +12,7 @@ class UserCtrl {
         ];
     }
 
-<<<<<<< HEAD
+
 
     async getAll(req, res) {
       let data = await User.getAll();
@@ -30,7 +30,7 @@ class UserCtrl {
       }
 
       res.send(json);
-=======
+
     static async getAll(req, res) {
         const datar = await User.getAll();
 
@@ -47,7 +47,7 @@ class UserCtrl {
         }
 
         res.send(json);
->>>>>>> d4615c80996817dbe3e8f74269501995fb1aec04
+
     }
 
     static async get(req, res) {
