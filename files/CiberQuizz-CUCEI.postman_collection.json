@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "665009f1-a11b-4e2a-81c6-74beea18234f",
+		"_postman_id": "6de114ab-93c4-43cf-a299-c177ba7a24f2",
 		"name": "CiberQuizz-CUCEI",
 		"description": "RESTfullAPI para el proyecto CiberQuizz-CCUCEI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -8,7 +8,48 @@
 	"item": [
 		{
 			"name": "Categories",
+			"description": null,
 			"item": [
+				{
+					"name": "Add category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "category",
+									"value": "a",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "a",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app}}/categories",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"categories"
+							]
+						},
+						"description": "Agrega una categoria"
+					},
+					"response": []
+				},
 				{
 					"name": "List of categories",
 					"request": {
@@ -19,13 +60,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/categories",
+							"raw": "{{app}}/categories",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
 								"categories"
 							]
@@ -44,13 +87,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/categories/:category",
+							"raw": "{{app}}/categories/:category",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
 								"categories",
 								":category"
@@ -80,6 +125,12 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
+									"key": "category",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
 									"key": "content",
 									"value": "informatica",
 									"type": "text"
@@ -87,11 +138,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/categories/:category",
+							"raw": "{{app}}/categories/:category",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
 								"categories",
 								":category"
@@ -111,6 +161,7 @@
 		},
 		{
 			"name": "Login",
+			"description": null,
 			"item": [
 				{
 					"name": "Login",
@@ -122,54 +173,29 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
-						"url": {
-							"raw": "localhost:3000/login",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"login"
-							]
-						},
-						"description": "Inicio de sesión para usuarios y administradores"
-					},
-					"response": []
-				},
-				{
-					"name": "Add Login",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{app}}/login/:username/:password",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"login",
+								":username",
+								":password"
+							],
+							"variable": [
 								{
 									"key": "username",
-									"value": "Juan",
-									"type": "text"
+									"value": ""
 								},
 								{
 									"key": "password",
-									"value": "1234",
-									"type": "text"
+									"value": ""
 								}
-							]
-						},
-						"url": {
-							"raw": "localhost:3000/login",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"login"
 							]
 						},
 						"description": "Inicio de sesión para usuarios y administradores"
@@ -180,7 +206,54 @@
 		},
 		{
 			"name": "Play",
+			"description": null,
 			"item": [
+				{
+					"name": "Challenge friend",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "date",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "player1",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "player2",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app}}/play",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"play"
+							]
+						},
+						"description": "Permite a los usuarios retar a amigos"
+					},
+					"response": []
+				},
 				{
 					"name": "Play",
 					"request": {
@@ -191,15 +264,24 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/play",
+							"raw": "{{app}}/play/:idGame",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
-								"play"
+								"play",
+								":idGame"
+							],
+							"variable": [
+								{
+									"key": "idGame",
+									"value": ""
+								}
 							]
 						},
 						"description": "Permite a los usuarios jugar"
@@ -207,32 +289,275 @@
 					"response": []
 				},
 				{
-					"name": "Answer question",
+					"name": "List of games",
 					"request": {
-						"method": "PUT",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/play",
+							"raw": "{{app}}/play/:idGame",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
-								"play"
+								"play",
+								":idGame"
+							],
+							"variable": [
+								{
+									"key": "idGame",
+									"value": ""
+								}
 							]
 						},
-						"description": "Permite a los usuarios contestar una pregunta"
+						"description": "Entrega la lista de juegos"
 					},
 					"response": []
 				},
 				{
-					"name": "Earn or lose points",
+					"name": "Match history",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{app}}/play/:username",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"play",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": ""
+								}
+							]
+						},
+						"description": "Entrega el historial de partidas"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Game",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{app}}/play/:idGame",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"play",
+								":idGame"
+							],
+							"variable": [
+								{
+									"key": "idGame",
+									"value": ""
+								}
+							]
+						},
+						"description": "Borra ua instancia del juego"
+					},
+					"response": []
+				},
+				{
+					"name": "Add to details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idGame",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "idQues",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "resP1",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "resP2",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app}}/play/game",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"play",
+								"game"
+							]
+						},
+						"description": "Se agrega a la tabla con detalles de ls partida actual"
+					},
+					"response": []
+				},
+				{
+					"name": "Find details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idGame",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "idQues",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "resP1",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "resP2",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app}}/play/game/:idGame",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"play",
+								"game",
+								":idGame"
+							],
+							"variable": [
+								{
+									"key": "idGame",
+									"value": ""
+								}
+							]
+						},
+						"description": "Se buscan detalles de la partida"
+					},
+					"response": []
+				},
+				{
+					"name": "List of details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idGame",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "idQues",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "resP1",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "resP2",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app}}/play/game",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"play",
+								"game"
+							]
+						},
+						"description": "Se muestra la lista de lo contenido en la tabla de detalles"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit details",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -245,48 +570,83 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "points",
-									"value": "10",
+									"key": "idGame",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "idQues",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "resP1",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "resP2",
+									"value": "",
+									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/play",
+							"raw": "{{app}}/play/game",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
-								"play"
+								"play",
+								"game"
 							]
 						},
-						"description": "Permite a los usuarios ganar o perder puntos"
+						"description": "Permite editar el contenido de los detalles"
 					},
 					"response": []
 				},
 				{
-					"name": "Challenge friend",
+					"name": "Delete details",
 					"request": {
-						"method": "POST",
+						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
-						"url": {
-							"raw": "localhost:3000/play",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"play"
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idGame",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "idQues",
+									"value": "",
+									"description": "",
+									"type": "text"
+								}
 							]
 						},
-						"description": "Permite a los usuarios retar a amigos"
+						"url": {
+							"raw": "{{app}}/play/game",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"play",
+								"game"
+							]
+						},
+						"description": "Permite eliminar el contenido de los detalles"
 					},
 					"response": []
 				}
@@ -294,64 +654,8 @@
 		},
 		{
 			"name": "Questions",
+			"description": null,
 			"item": [
-				{
-					"name": "List of questions",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {},
-						"url": {
-							"raw": "localhost:3000/questions",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"questions"
-							]
-						},
-						"description": "Permite visualizar la lista de preguntas"
-					},
-					"response": []
-				},
-				{
-					"name": "See question",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {},
-						"url": {
-							"raw": "localhost:3000/questions/:id",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"questions",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						},
-						"description": "Permite visualizar la preguntas"
-					},
-					"response": []
-				},
 				{
 					"name": "Add question",
 					"request": {
@@ -366,18 +670,8 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "category",
-									"value": "informatica",
-									"type": "text"
-								},
-								{
 									"key": "content",
 									"value": "pregunta",
-									"type": "text"
-								},
-								{
-									"key": "correct",
-									"value": "correcto",
 									"type": "text"
 								},
 								{
@@ -389,18 +683,38 @@
 									"key": "option_2",
 									"value": "opciondos",
 									"type": "text"
+								},
+								{
+									"key": "solution",
+									"value": "correcto",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "informatica",
+									"type": "text"
+								},
+								{
+									"key": "exist",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"description": "",
+									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/questions/submit",
+							"raw": "{{app}}/questions",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
-								"questions",
-								"submit"
+								"questions"
 							]
 						},
 						"description": "Permite agregar una pregunta"
@@ -408,7 +722,68 @@
 					"response": []
 				},
 				{
-					"name": "Approve question",
+					"name": "See question",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{app}}/questions/:idQuest",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"questions",
+								":idQuest"
+							],
+							"variable": [
+								{
+									"key": "idQuest",
+									"value": ""
+								}
+							]
+						},
+						"description": "Permite visualizar la preguntas"
+					},
+					"response": []
+				},
+				{
+					"name": "List of questions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{app}}/questions",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"questions"
+							]
+						},
+						"description": "Permite visualizar la lista de preguntas"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit question",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -421,27 +796,56 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "status",
+									"key": "idQuest",
 									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "opt1",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "opt2",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "solution",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/questions/:id",
+							"raw": "localhost:3000/questions",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"questions",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
+								"questions"
 							]
 						},
 						"description": "Permite aprobar una pregunta"
@@ -458,22 +862,23 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
-						"url": {
-							"raw": "localhost:3000/questions/:id",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"questions",
-								":id"
-							],
-							"variable": [
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
 								{
-									"key": "id",
-									"value": ""
+									"key": "idQuest",
+									"value": "true",
+									"type": "text"
 								}
+							]
+						},
+						"url": {
+							"raw": "{{app}}/questions",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"questions"
 							]
 						},
 						"description": "Permite eliminar una pregunta"
@@ -506,60 +911,8 @@
 		},
 		{
 			"name": "Users",
+			"description": null,
 			"item": [
-				{
-					"name": "See list user",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "localhost:3000/users",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users"
-							]
-						},
-						"description": "Permite la visualización de los perfil de los usuario"
-					},
-					"response": []
-				},
-				{
-					"name": "See user",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "localhost:3000/users/:id",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						},
-						"description": "Permite la visualización de un perfil de un usuario en particular"
-					},
-					"response": []
-				},
 				{
 					"name": "Add user",
 					"request": {
@@ -592,21 +945,82 @@
 									"key": "password",
 									"value": "1234",
 									"type": "text"
+								},
+								{
+									"key": "roles",
+									"value": "false",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "exist",
+									"value": "true",
+									"description": "",
+									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/users/signin",
+							"raw": "{{app}}/users",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
-								"users",
-								"signin"
+								"users"
 							]
 						},
 						"description": "Permite la creación de una cuenta de usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "See user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{app}}/users/:username",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"users",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": ""
+								}
+							]
+						},
+						"description": "Permite la visualización de un perfil de un usuario en particular"
+					},
+					"response": []
+				},
+				{
+					"name": "See list user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{app}}/users",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Permite la visualización de los perfil de los usuario"
 					},
 					"response": []
 				},
@@ -624,8 +1038,14 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "name",
+									"key": "username",
 									"value": "Juan24",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Juan",
+									"description": "",
 									"type": "text"
 								},
 								{
@@ -637,22 +1057,27 @@
 									"key": "password",
 									"value": "12345",
 									"type": "text"
+								},
+								{
+									"key": "roles",
+									"value": "false",
+									"description": "",
+									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/users/:id",
+							"raw": "{{app}}/users/:username",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
-								":id"
+								":username"
 							],
 							"variable": [
 								{
-									"key": "id",
+									"key": "username",
 									"value": ""
 								}
 							]
@@ -671,127 +1096,26 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
-						"url": {
-							"raw": "localhost:3000/users/:id",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						},
-						"description": "Permite eliminar la información de algún perfil de usuario en particular"
-					},
-					"response": []
-				},
-				{
-					"name": "Add administrator",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
 						"body": {
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "Juan23",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "Juan",
-									"type": "text"
-								},
-								{
-									"key": "mail",
-									"value": "Juan@correo.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "1234",
+									"value": "Juan24",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/users/admin",
+							"raw": "{{app}}/users",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
-								"users",
-								"admin"
+								"users"
 							]
 						},
-						"description": "Permite agregar un administrador"
-					},
-					"response": []
-				},
-				{
-					"name": "Delete administrador",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {},
-						"url": {
-							"raw": "localhost:3000/users/admin",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users",
-								"admin"
-							]
-						},
-						"description": "Permite eliminar la información de algún perfil de administrador en particular"
-					},
-					"response": []
-				},
-				{
-					"name": "List of friends",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {},
-						"url": {
-							"raw": "localhost:3000/user/friends",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"user",
-								"friends"
-							]
-						},
-						"description": "Permite agregar un amigo en la plataforma"
+						"description": "Permite eliminar la información de algún perfil de usuario en particular"
 					},
 					"response": []
 				},
@@ -812,21 +1136,101 @@
 									"key": "username",
 									"value": "Jose",
 									"type": "text"
+								},
+								{
+									"key": "friend",
+									"value": "Juanito03",
+									"description": "",
+									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/user/friends",
+							"raw": "{{app}}/user/friends",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"friends"
 							]
 						},
 						"description": "Permite enviar la solicitud a un amigo en la plataforma"
+					},
+					"response": []
+				},
+				{
+					"name": "Find friend",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Jose",
+									"type": "text"
+								},
+								{
+									"key": "friend",
+									"value": "Juanito03",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app}}/user/friends/:username",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"user",
+								"friends",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": ""
+								}
+							]
+						},
+						"description": "Permite bucar a un amigo que ya has agregado"
+					},
+					"response": []
+				},
+				{
+					"name": "List of friends",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{app}}/user/friends",
+							"host": [
+								"{{app}}"
+							],
+							"path": [
+								"user",
+								"friends"
+							]
+						},
+						"description": "Permite agregar un amigo en la plataforma"
 					},
 					"response": []
 				},
@@ -844,22 +1248,28 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "status",
-									"value": "true",
+									"key": "username",
+									"value": "",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "friend",
+									"value": "",
+									"description": "",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/user/friends/req",
+							"raw": "{{app}}/user/friends/request",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"friends",
-								"req"
+								"request"
 							]
 						},
 						"description": "Permite aceptar la solicitud enviada"
@@ -876,13 +1286,28 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Juan",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "friendUsername",
+									"value": "Juan1",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "localhost:3000/users/friends",
+							"raw": "{{app}}/users/friends",
 							"host": [
-								"localhost"
+								"{{app}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"friends"
