@@ -1,153 +1,76 @@
-const { Router } = require('express');
+const express = require('express');
+const controller = require('../controllers/users');
 
-// const usersCtrl = require('../controllers/users');
-//
-const userMidd = require('../middlewares');
+const router = express.Router();
 
-const router = Router();
-
-// Lista usuarios
-
-router.get('/', userMidd.isAdmin, (req, res) => {
-    const persona = [{
-        id: 1,
-        permissions: true,
-        username: 'Juancho01',
-        name: 'Juan',
-        mail: 'Juan@gmail.com',
-    },
-    {
-        id: 2,
-        permissions: false,
-        username: 'Juancho02',
-        name: 'Juan',
-        mail: 'Juan@gmail.com',
-    },
-    {
-        id: 3,
-        permissions: false,
-        username: 'Juancho03',
-        name: 'Juan',
-        mail: 'Juan@gmail.com',
-    }];
-    res.send(persona);
+router.post('/', (req, res) => {
+    const response = controller.add(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
-// Ver perfil usuario
-
-router.get('/:id', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            id: req.params.id,
-            username: `Juancho${req.params.id}`,
-            name: 'Juan',
-            mail: `Juan${req.params.id}@gmail.com`,
-        },
-    };
-
-    res.send(json);
+router.get('/:username', (req, res) => {
+    const response = controller.find(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
-// Agregar usuario
-
-router.post('/signin', userMidd.usersRF, (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            id: 100,
-            username: req.body.username,
-            name: req.body.name,
-            mail: req.body.mail,
-            password: req.body.password,
-        },
-    };
-    res.send(json);
+router.get('/', (req, res) => {
+    const response = controller.list(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
-// Editar usuario
-
-router.put('/:id', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            id: req.params.id,
-            username: 'Username placeholder',
-            name: req.body.name,
-            mail: req.body.mail,
-            password: req.body.password,
-        },
-    };
-    res.send(json);
+router.put('/:username', (req, res) => {
+    const response = controller.edit(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
-// Eliminar usuario
-
-router.delete('/', userMidd.isAdmin, (req, res) => {
-    res.send(`se ha eliminado el usuario ${req.body.username} exitosamente!`);
+router.delete('/', (req, res) => {
+    const response = controller.delete(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
-
-// Agregar admin
-
-router.post('/admin', userMidd.isAdmin, (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            id: 100,
-            username: req.body.username,
-            name: req.body.name,
-            mail: req.body.mail,
-            password: req.body.password,
-        },
-    };
-    res.send(json);
-});
-
-// Eliminar admin
-
-router.delete('/admin', userMidd.isAdmin, (req, res) => {
-    res.send(`se ha eliminado el usuario ${req.body.username} exitosamente!`);
-});
-
-// Lista de amigos
-
-router.get('/friends', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            username: req.body.username,
-        },
-    };
-    res.send(json);
-});
-
-// Solicitud de Amistad
 
 router.post('/friends', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            username: req.body.username,
-        },
-    };
-    res.send(json);
+    const response = controller.addFriend(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
-// Aceptar solicitud de Amistad(modificar status)
+router.get('/friends/:username', (req, res) => {
+    const response = controller.findFriend(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
 
-router.put('/friends/req', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            username: 'Juan',
-            status: req.body.status,
-        },
-    };
-    res.send(json);
+router.get('/friends', (req, res) => {
+    const response = controller.friendList(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
+
+router.put('/friends/request', (req, res) => {
+    const response = controller.editStatusFriend(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
 router.delete('/friends', (req, res) => {
-    res.send(`Se ha eliminado el usuario ${req.body.username} de tu lista de amigos`);
+    const response = controller.deleteFriend(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
 module.exports = router;
