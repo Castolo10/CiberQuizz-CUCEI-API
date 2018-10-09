@@ -1,117 +1,76 @@
-const router = require('express');
+const express = require('express');
+const controller = require('../controllers/users');
 
-// const { usersCtrl } = require('../controllers');
+const router = express.Router();
 
-// const middlewares = require('../middlewares');
-
-// Lista usuarios
-
-// router.get('/', usersCtrl.getAll);
-
-// Ver perfil usuario
-
-// router.get('/:id', usersCtrl.get);
-
-// Agregar usuario
-
-// router.post('/', (req, res) => {
-//     const json = {
-//         response: 'ok',
-//         data: {
-//             id: req.params.id,
-//             username: 'Username placeholder',
-//             name: req.body.name,
-//             mail: req.body.mail,
-//             password: req.body.password,
-//         },
-//     };
-//     res.send(json);
-// });
-
-
-// Editar usuario
-
-/* router.put('/:id', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            id: req.params.id,
-            username: 'Username placeholder',
-            name: req.body.name,
-            mail: req.body.mail,
-            password: req.body.password,
-        },
-    };
-    res.send(json);
+router.post('/', (req, res) => {
+    const response = controller.add(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
-// Eliminar usuario
-
-router.delete('/', userMidd.isAdmin, (req, res) => {
-    res.send(`se ha eliminado el usuario ${req.body.username} exitosamente!`);
+router.get('/:id', (req, res) => {
+    const response = controller.find(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
-// Agregar admin
-
-router.post('/admin', userMidd.isAdmin, (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            id: 100,
-            username: req.body.username,
-            name: req.body.name,
-            mail: req.body.mail,
-            password: req.body.password,
-        },
-    };
-    res.send(json);
+router.get('/', (req, res) => {
+    const response = controller.list(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
-// Eliminar admin
-
-router.delete('/admin', userMidd.isAdmin, (req, res) => {
-    res.send(`se ha eliminado el usuario ${req.body.username} exitosamente!`);
+router.put('/', (req, res) => {
+    const response = controller.edit(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
-// Lista de amigos
-
-router.get('/friends', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            username: req.body.username,
-        },
-    };
-    res.send(json);
+router.delete('/', (req, res) => {
+    const response = controller.delete(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
-
-// Solicitud de Amistad
 
 router.post('/friends', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            username: req.body.username,
-        },
-    };
-    res.send(json);
+    const response = controller.addFriend(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
-// Aceptar solicitud de Amistad(modificar status)
+router.get('/friends/:username', (req, res) => {
+    const response = controller.findFriend(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
 
-router.put('/friends/req', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            username: 'Juan',
-            status: req.body.status,
-        },
-    };
-    res.send(json);
+router.get('/friends', (req, res) => {
+    const response = controller.friendList(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
+
+router.put('/friends/request', (req, res) => {
+    const response = controller.editStatusFriend(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
 router.delete('/friends', (req, res) => {
-    res.send(`Se ha eliminado el usuario ${req.body.username} de tu lista de amigos`);
-}); */
+    const response = controller.deleteFriend(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
 
 module.exports = router;

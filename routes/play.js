@@ -1,45 +1,76 @@
-const { Router } = require('express');
+const express = require('express');
+const controller = require('../controllers/play');
 
-// const usersCtrl = require('../controllers/users');
-// const dateMidd = require('../middleware/index');
-
-// const playMidd = require('../middlewares/play.js');
-
-const router = Router();
-
-router.get('/', (req, res) => {
-    res.send('es el play');
-});
-
-// Contestar pregunta
-
-router.put('/', (req, res) => {
-    res.send(`Has elegido ${req.body.response} como respuesta`);
-});
-
-// Ganar o perder puntos
-
-router.put('/', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            points: req.body.points,
-        },
-    };
-    res.send(json);
-});
-
-// Retar amigos
+const router = express.Router();
 
 router.post('/', (req, res) => {
-    const json = {
-        response: 'ok',
-        data: {
-            username: req.body.username,
-        },
-    };
-    res.send(json);
-    res.send(`Se ha enviado el desafio a ${req.body.username}`);
+    const response = controller.addGame(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
+
+router.get('/:idGame', (req, res) => {
+    const response = controller.findGame(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
+
+router.get('/', (req, res) => {
+    const response = controller.listOfGames(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
+
+router.get('/:username/matchHistory', (req, res) => {
+    const response = controller.matchHistory(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
+
+router.delete('/', (req, res) => {
+    const response = controller.deleteGame(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
+
+router.post('/game/:idQues', (req, res) => {
+    const response = controller.addToDetails(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
+
+router.get('/game/:idGame', (req, res) => {
+    const response = controller.findDetails(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
+
+router.get('/game/', (req, res) => {
+    const response = controller.listOfDetalis(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
+
+router.put('/game', (req, res) => {
+    const response = controller.editDetails(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
+});
+
+router.delete('/', (req, res) => {
+    const response = controller.deleteDetails(req, res);
+    response.then((result) => {
+        res.json(result.rows);
+    });
 });
 
 module.exports = router;
