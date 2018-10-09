@@ -20,11 +20,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(router);
 
 app.use(errorHandler);
-/*
+
 app.listen(3000);
 console.log('servidor express escuchando');
-<<<<<<< HEAD
-*/
+/*
 // pasamos el 404 al errorHandler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -32,8 +31,6 @@ app.use(function(req, res, next) {
 
 app.listen(process.env.PORT, () => {
     console.log(`Example app listening on port ${process.env.PORT}`);
-});
+});*/
 
 module.exports = app;
-=======
->>>>>>> parent of ab9ccda... Merge branch 'feature' of https://github.com/Castolo10/CiberQuizz-CUCEI-API into feature

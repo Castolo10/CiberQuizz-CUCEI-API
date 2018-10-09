@@ -2,7 +2,8 @@
   "name": "ciberquizz-cucei",
   "version": "1.0.0",
   "description": "Sitio enfocado a ser un juego de preguntas sobre topicos de informatica",
-  "main": "index.js",
+  "main": "app.js",
+  "start": "nodemon app.js",
   "scripts": {
     "test": "https://github.com/Castolo10/CiberQuizz-CUCEI.git"
   },
@@ -31,7 +32,6 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-<<<<<<< HEAD
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
@@ -39,10 +39,6 @@
     "http-errors": "^1.7.1",
     "node": "^10.11.0",
     "pg": "^7.5.0",
-=======
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
->>>>>>> parent of ab9ccda... Merge branch 'feature' of https://github.com/Castolo10/CiberQuizz-CUCEI-API into feature
     "pg-promise": "^8.4.6"
   }
 }

@@ -12,10 +12,6 @@ class UserCtrl {
         ];
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of ab9ccda... Merge branch 'feature' of https://github.com/Castolo10/CiberQuizz-CUCEI-API into feature
 
     async getAll(req, res) {
       let data = await User.getAll();
@@ -33,8 +29,9 @@ class UserCtrl {
       }
 
       res.send(json);
-<<<<<<< HEAD
 
+
+/*
     static async getAll(req, res) {
         const datar = await User.getAll();
 
@@ -43,7 +40,7 @@ class UserCtrl {
             total_count: datar.length,
             per_page: datar.length,
             page: 0,
-        };
+        };*/
 
         // si el usuario no se encuentra
         if (datar.length === 0) {
@@ -52,8 +49,7 @@ class UserCtrl {
 
         res.send(json);
 
-=======
->>>>>>> parent of ab9ccda... Merge branch 'feature' of https://github.com/Castolo10/CiberQuizz-CUCEI-API into feature
+
     }
 
     async get(req, res) {
