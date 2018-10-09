@@ -19,13 +19,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/categories",
+							"raw": "{{url}}/categories",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"categories"
 							]
@@ -44,13 +46,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/categories/:category",
+							"raw": "{{url}}/categories/:category",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"categories",
 								":category"
@@ -87,11 +91,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/categories/:category",
+							"raw": "{{url}}/categories/:category",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"categories",
 								":category"
@@ -122,13 +125,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/login",
+							"raw": "{{url}}/login",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"login"
 							]
@@ -163,11 +168,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/login",
+							"raw": "{{url}}/login",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"login"
 							]
@@ -191,13 +195,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/play",
+							"raw": "{{url}}/play",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"play"
 							]
@@ -216,13 +222,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/play",
+							"raw": "{{url}}/play",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"play"
 							]
@@ -252,11 +260,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/play",
+							"raw": "{{url}}/play",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"play"
 							]
@@ -275,13 +282,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/play",
+							"raw": "{{url}}/play",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"play"
 							]
@@ -305,13 +314,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/questions",
+							"raw": "{{url}}/questions",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"questions"
 							]
@@ -330,13 +341,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/questions/:id",
+							"raw": "{{url}}/questions/:id",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"questions",
 								":id"
@@ -393,11 +406,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/questions/submit",
+							"raw": "{{url}}/questions/submit",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"questions",
 								"submit"
@@ -410,7 +422,7 @@
 				{
 					"name": "Approve question",
 					"request": {
-						"method": "PUT",
+						"method": "PATCH",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -428,11 +440,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/questions/:id",
+							"raw": "{{url}}/questions/:id",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"questions",
 								":id"
@@ -458,13 +469,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/questions/:id",
+							"raw": "{{url}}/questions/:id",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"questions",
 								":id"
@@ -517,11 +530,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "localhost:3000/users",
+							"raw": "{{url}}/users",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users"
 							]
@@ -540,11 +552,10 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "localhost:3000/users/:id",
+							"raw": "{{url}}/users/:id",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								":id"
@@ -596,11 +607,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/users/signin",
+							"raw": "{{url}}/users/signin",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"signin"
@@ -641,11 +651,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/users/:id",
+							"raw": "{{url}}/users/:id",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								":id"
@@ -671,13 +680,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/users/:id",
+							"raw": "{{url}}/users/:id",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								":id"
@@ -729,11 +740,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/users/admin",
+							"raw": "{{url}}/users/admin",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"admin"
@@ -753,13 +763,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/users/admin",
+							"raw": "{{url}}/users/admin",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"admin"
@@ -779,13 +791,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/user/friends",
+							"raw": "{{url}}/user/friends",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"friends"
@@ -816,11 +830,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/user/friends",
+							"raw": "{{url}}/user/friends",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"friends"
@@ -851,11 +864,10 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3000/user/friends/req",
+							"raw": "{{url}}/user/friends/req",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"friends",
@@ -876,13 +888,15 @@
 								"value": "application/x-www-form-urlencoded"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "localhost:3000/users/friends",
+							"raw": "{{url}}/users/friends",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"friends"
