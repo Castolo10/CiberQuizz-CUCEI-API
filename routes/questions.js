@@ -83,7 +83,7 @@ router.post('/submit', questionMidd.requiredFields, (req, res) => {
 
 // Aprobar preguntas
 
-router.patch ('/:id', questionMidd.isAdmin, (req, res) => {
+router.patch  ('/:id', questionMidd.isAdmin, (req, res) => {
     const json = {
         response: 'ok',
         data: {
