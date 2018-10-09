@@ -1,30 +1,33 @@
 const router = require('express');
 
-const { usersCtrl } = require('../controllers');
+// const { usersCtrl } = require('../controllers');
 
-const middlewares = require('../middlewares');
+// const middlewares = require('../middlewares');
 
 // Lista usuarios
 
-router.get('/', usersCtrl.getAll);
+// router.get('/', usersCtrl.getAll);
 
 // Ver perfil usuario
 
-router.get('/:id', usersCtrl.get);
+// router.get('/:id', usersCtrl.get);
 
 // Agregar usuario
 
-router.post('/', (req, res, next) => {
-    middlewares.validator.validate(req, res, next, {
-        body: {
-            name: 'word, required',
-            email: 'email, required',
-            unwanted: 'required',
-        },
-    });
-}, usersCtrl.create);
+// router.post('/', (req, res) => {
+//     const json = {
+//         response: 'ok',
+//         data: {
+//             id: req.params.id,
+//             username: 'Username placeholder',
+//             name: req.body.name,
+//             mail: req.body.mail,
+//             password: req.body.password,
+//         },
+//     };
+//     res.send(json);
+// });
 
-router.delete('/:id', usersCtrl.delete);
 
 // Editar usuario
 
