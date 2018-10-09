@@ -42,10 +42,10 @@ exports.addFriend = (username, friend) => {
     return response;
 };
 
-exports.findFriend = (username) => {
+exports.findFriend = (username, friend) => {
     const response = db.SELECT('friendlist',
         'friend_username',
-        `friend_username='${username}' AND status_req=true`);
+        `username=${username} AND friend_username='${friend}' AND status_req=true`);
     return response;
 };
 
