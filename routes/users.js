@@ -10,7 +10,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:username', (req, res) => {
     const response = controller.find(req, res);
     response.then((result) => {
         res.json(result.rows);
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.put('/', (req, res) => {
+router.put('/:username', (req, res) => {
     const response = controller.edit(req, res);
     response.then((result) => {
         res.json(result.rows);

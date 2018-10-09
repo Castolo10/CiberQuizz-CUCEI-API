@@ -6,7 +6,7 @@ exports.addGame = (req, res) => {
 };
 
 exports.findGame = (req, res) => {
-    const response = model.findGame(req.body.idGame);
+    const response = model.findGame(req.params.idGame);
     res.send(response);
 };
 
@@ -16,12 +16,12 @@ exports.listOfGames = (req, res) => {
 };
 
 exports.matchHistory = (req, res) => {
-    const response = model.matchHistory(req.body.username);
+    const response = model.matchHistory(req.params.username);
     res.send(response);
 };
 
 exports.deleteGame = (req, res) => {
-    const response = model.deleteGame(req.body.idGame);
+    const response = model.deleteGame(req.params.idGame);
     res.send(response);
 };
 
@@ -32,7 +32,7 @@ exports.addToDetails = (req, res) => {
 };
 
 exports.findDetails = (req, res) => {
-    const response = model.findDetails(req.body.idGame);
+    const response = model.findDetails(req.params.idGame);
     res.send(response);
 };
 

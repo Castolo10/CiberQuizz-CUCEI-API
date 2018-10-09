@@ -7,7 +7,7 @@ exports.add = (req, res) => {
 };
 
 exports.find = (req, res) => {
-    const response = model.find(req.body.idQuest);
+    const response = model.find(req.params.idQuest);
     res.send(response);
 };
 

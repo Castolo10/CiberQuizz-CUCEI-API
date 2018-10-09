@@ -58,7 +58,7 @@ exports.friendList = (username) => {
 
 exports.editStatusFriend = (username, friendUsername) => {
     const response = db.UPDATE('friendlist',
-        'status_req=false',
+        'status_req=true',
         `username='${username}'AND friend_username='${friendUsername}'`);
     return response;
 };

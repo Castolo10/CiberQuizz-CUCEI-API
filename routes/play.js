@@ -38,7 +38,7 @@ router.delete('/', (req, res) => {
     });
 });
 
-router.post('/game/:idQues', (req, res) => {
+router.post('/game', (req, res) => {
     const response = controller.addToDetails(req, res);
     response.then((result) => {
         res.json(result.rows);
@@ -52,7 +52,7 @@ router.get('/game/:idGame', (req, res) => {
     });
 });
 
-router.get('/game/', (req, res) => {
+router.get('/game', (req, res) => {
     const response = controller.listOfDetalis(req, res);
     response.then((result) => {
         res.json(result.rows);
