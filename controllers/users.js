@@ -12,7 +12,10 @@ class UserCtrl {
         ];
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of ab9ccda... Merge branch 'feature' of https://github.com/Castolo10/CiberQuizz-CUCEI-API into feature
 
     async getAll(req, res) {
       let data = await User.getAll();
@@ -30,6 +33,7 @@ class UserCtrl {
       }
 
       res.send(json);
+<<<<<<< HEAD
 
     static async getAll(req, res) {
         const datar = await User.getAll();
@@ -48,34 +52,37 @@ class UserCtrl {
 
         res.send(json);
 
+=======
+>>>>>>> parent of ab9ccda... Merge branch 'feature' of https://github.com/Castolo10/CiberQuizz-CUCEI-API into feature
     }
 
-    static async get(req, res) {
-        const data = await User.get(req.params.id);
+    async get(req, res) {
+      let data = await User.get(req.params.id);
 
-        // si el usuario no se encuentra
+      // si el usuario no se encuentra
 
-        if (data.length === 0) {
-            res.status(204);
-        }
+      if(data.length === 0){
+        res.status(204);
+      }
 
-        res.send(data);
+      res.send(data);
     }
 
-    static async create(req, res, next) {
-        try {
-            const data = await User.create(req.body);
-            res.status(201).send(data);
-        } catch (e) {
-            next(e);
-        }
+    async create(req, res, next) {
+      try {
+        let data = await User.create(req.body);
+        res.status(201).send(data);
+      } catch(e) {
+        next(e);
+      }
     }
 
     delete(req, res) {
-        const index = this.data.findIndex(el => el.id === Number(req.params.id));
-        this.data.splice(index, 1);
-        res.send();
+      const index = this.data.findIndex(el => el.id === Number(req.params.id));
+      this.data.splice(index, 1);
+      res.send();
     }
+
 }
 
 module.exports = new UserCtrl();

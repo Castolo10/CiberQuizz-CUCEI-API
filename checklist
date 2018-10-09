@@ -1,9 +1,0 @@
-1.- Server
-2.- Deployear al Server
-3.- Actualizar readme con los datos del proyecto como los modulos, colaboradores, la librería de postman, etc(Buscar en el grupo)
-4.- Colección de postman(completa).
-5.- Configurar enviroment
-6.- Codigo final en master
-
-***Modificar base de datos para agregar la tabla jugar, que guarda los participantes, la lista de preguntas, las respuestas, fecha y hora, etc.
-*** Modificar DB para que las preguntas guarden la respuesta actual por si el navegador se cierra
