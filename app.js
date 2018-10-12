@@ -23,7 +23,7 @@ app.use((req, res, next) => {
     next(createError(404));
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(3000, () => {
     console.log(`Example app listening on port ${process.env.PORT}`);
 });
 
