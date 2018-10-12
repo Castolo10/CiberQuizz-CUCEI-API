@@ -1,4 +1,4 @@
-const { Client } = require('pg');
+const { Client } = require('pg-promise');
 
 const URL = `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.PORT}/${process.env.DB_NAME}`;
 const client = new Client(URL);
