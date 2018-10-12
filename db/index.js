@@ -1,15 +1,14 @@
-const { Client } = require('pg-promise');
+const promise = require('bluebird');
 
-const URL = `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.PORT}/${process.env.DB_NAME}`;
-const client = new Client(URL);
+const options = {
+    // Initialization Options
+    promiseLib: promise,
+};
 
-client.connect((err) => {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log('Database Started');
-    }
-});
+const pgp = require('pg-promise')(options);
+
+const connectionString = `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.PORT}/${process.env.DB_NAME}`;
+const db = pgp(connectionString);
 
 exports.INSERT = (tableName, columns, values, contition = null, returning = null) => {
     let sql = '';
@@ -22,7 +21,7 @@ exports.INSERT = (tableName, columns, values, contition = null, returning = null
         sql += ` RETURNING ${returning}`;
     }
 
-    const resp = client.query(sql);
+    const resp = db.many(sql);
     return resp;
 };
 
@@ -33,8 +32,7 @@ exports.SELECT = (tableName, columns = '*', condition = null) => {
     if (condition !== null) {
         sql += ` WHERE ${condition}`;
     }
-    console.log(sql);
-    const resp = client.query(sql);
+    const resp = db.many(sql);
     return resp;
 };
 
@@ -46,7 +44,7 @@ exports.UPDATE = async (tableName, setters, condition, returning = null) => {
     if (returning !== null) {
         sql += ` RETURNING ${returning}`;
     }
-    const { rows } = await client.query(sql);
+    const { rows } = await db.many(sql);
     return rows;
 };
 
@@ -54,12 +52,12 @@ exports.DELETE = async (tableName, condition) => {
     let sql = '';
     sql += `DELETE FROM ${tableName}`;
     sql += ` WHERE ${condition}`;
-    const { rows } = await client.query(sql);
+    const { rows } = await db.many(sql);
     return rows;
 };
 
 exports.NOW = async () => {
     const sql = 'SELECT NOW()';
-    const { rows } = await client.query(sql);
+    const { rows } = await db.many(sql);
     return rows;
 };
