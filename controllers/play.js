@@ -1,7 +1,15 @@
+//  FIXME Utilizar destructuring ejem:
+//  const { Play } = require('../models/play');
 const model = require('../models/play');
+
+// FIXME Cada controlador debe ser una clase
+// FIXME Todos los metodos que acceden al modelo y por lo cual son async, deben tener su async-await
+// FIXME Cada metodo del controlador debe tener manejo de errores en caso de que el modelo no obtenga datos
+
 
 exports.addGame = (req, res) => {
     const response = model.addGame(req.body.date, req.body.player1, req.body.player2);
+    // FIXME Cuando se crean recursos, el responseCode debe ser 201
     res.send(response);
 };
 

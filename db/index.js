@@ -8,7 +8,10 @@ const options = {
 const pgp = require('pg-promise')(options);
 
 const connectionString = `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.PORT}/${process.env.DB_NAME}`;
+// FIXME Falta manejo de errores para los casos en que las conexiones fallen
 const db = pgp(connectionString);
+
+// FIXME TODOS los metodos deben tener su manejo de errores
 
 exports.INSERT = (tableName, columns, values, contition = null, returning = null) => {
     let sql = '';

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-// Cargamos todos los middlewares
+// Cargamos todos los middlewares //  FIXME Quitar comentario, además, los middlewares se cargan en app.js
 
 // Cargamos las rutas por módulos
 
